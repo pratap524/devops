@@ -13,7 +13,7 @@ pipeline {
 	               }
 	               }
 		stage(image building) {
-		steps {
+		script {
 		sh "docker build -t nginx-pratap ." 
 			}
 			}
