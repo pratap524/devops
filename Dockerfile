@@ -1,9 +1,8 @@
 FROM ubuntu
 MAINTAINER "pratap524@gmail.com"
-RUN apt-get update
-RUN apt install ssh -y
-RUN useradd -m -s /bin/bash pratap
-RUN echo 'pratap:pratap' | chpasswd
-USER pratap
-WORKDIR /home/pratap
-
+RUN apt-get update -y
+RUN apt install openjdk-11-jdk -y
+RUN apt install nginx -y
+RUN apt install ssh
+COPY target/gamutgurus.war var/lib/www
+ENTRYPOINT service nginx start && /bash
