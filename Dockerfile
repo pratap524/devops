@@ -1,8 +1,6 @@
 FROM ubuntu
-MAINTAINER "pratap524@gmail.com"
-RUN apt-get update -y
-RUN apt install openjdk-11-jdk -y
+RUN apt-get update
 RUN apt install nginx -y
-RUN apt install ssh
-COPY target/gamutgurus.war var/lib/www
-ENTRYPOINT service nginx start && /bash
+COPY target/gamutgurus.war var/www/html
+ENTRYPOINT service nginx start && bash
+
