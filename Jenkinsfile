@@ -3,18 +3,18 @@ pipeline {
 	stages {
 		stage('clone the code'){
 			steps {
-		sh "checkout scm" 
-		}
-		}
+				sh "checkout scm" 
+			}
+			}
 
-		stage(build) {
+		stage('build') {
 			steps {
-		sh "mvn install"
+				sh "mvn install"
 	               }
 	               }
-		stage(image building) {
-		script {
-		sh "docker build -t nginx-pratap ." 
+		stage('image building') {
+			steps {
+				sh "docker build -t nginx-pratap ." 
 			}
 			}
 		}
